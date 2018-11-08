@@ -1,0 +1,73 @@
+//sass main.scss ../../../public/css/main.css
+
+// Variables
+@import "variables";
+
+.content-wrapper{
+	margin-left: 0;
+    background-color: #fcfcfc;
+	.container{
+		.content-header{
+			h1{
+				font-size: 40px;
+			    font-weight: bold;
+			    color:$bordo;
+			}
+		}
+	}
+}
+
+.centered{
+    float: none;
+    margin: 0 auto;
+}
+
+#home{
+	a{
+		h2{
+			font-size: 30px;
+			font-weight: bold;
+			color:$purple;
+			&:hover{
+				color:$dark-gray;
+				cursor:pointer;
+			}
+		}
+
+	}
+	p{
+		font-size: 16px;
+	    display: -webkit-box;
+	    margin: 0 auto;
+	    -webkit-line-clamp: 5;
+	    -webkit-box-orient: vertical;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+
+    	max-height: 110px;/* Fallback for non-webkit */
+	}
+	.btn-more{
+		margin-top: 20px;
+	    font-size: 18px;
+	    background: transparent;
+	    border: 2px solid $purple;
+	    border-radius: 50px;
+	    font-weight: bold;
+	    color:$purple;
+	    &:hover{
+			border: 2px solid $dark-gray;
+			color:$dark-gray;
+		}
+	}
+
+	.info{
+	    margin-bottom: 10px;
+		i{
+			color: $light-gray
+		}
+		span{
+			color: $light-gray;
+			margin:0 10px 0 4px
+		}
+	}
+}

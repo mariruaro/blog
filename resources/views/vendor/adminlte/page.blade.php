@@ -2,16 +2,17 @@
 
 @section('adminlte_css')
     <link rel="stylesheet"
-          href="{{ asset('vendor/adminlte/dist/css/skins/skin-' . config('adminlte.skin', 'blue') . '.min.css')}} ">
+          href="{{ asset('vendor/adminlte/dist/css/skins/skin-' . config('adminlte.skin', 'black-light') . '.min.css')}} ">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">      
     @stack('css')
     @yield('css')
 @stop
 
-@section('body_class', 'skin-' . config('adminlte.skin', 'blue') . ' sidebar-mini ' . (config('adminlte.layout') ? [
+@section('body_class', 'skin-' . config('adminlte.skin', 'black-light') .  (config('adminlte.layout') ? [
     'boxed' => 'layout-boxed',
     'fixed' => 'fixed',
     'top-nav' => 'layout-top-nav'
-][config('adminlte.layout')] : '') . (config('adminlte.collapse_sidebar') ? ' sidebar-collapse ' : ''))
+][config('adminlte.layout')] : '') . (config('adminlte.collapse_sidebar') ? '  ' : ''))
 
 @section('body')
     <div class="wrapper">
@@ -49,9 +50,7 @@
             <!-- Header Navbar -->
             <nav class="navbar navbar-static-top" role="navigation">
                 <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                    <span class="sr-only">{{ trans('adminlte::adminlte.toggle_navigation') }}</span>
-                </a>
+               
             @endif
                 <!-- Navbar Right Menu -->
                 <div class="navbar-custom-menu">
@@ -84,28 +83,12 @@
             </nav>
         </header>
 
-        @if(config('adminlte.layout') != 'top-nav')
-        <!-- Left side column. contains the logo and sidebar -->
-        <aside class="main-sidebar">
-
-            <!-- sidebar: style can be found in sidebar.less -->
-            <section class="sidebar">
-
-                <!-- Sidebar Menu -->
-                <ul class="sidebar-menu" data-widget="tree">
-                    @each('adminlte::partials.menu-item', $adminlte->menu(), 'item')
-                </ul>
-                <!-- /.sidebar-menu -->
-            </section>
-            <!-- /.sidebar -->
-        </aside>
-        @endif
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            @if(config('adminlte.layout') == 'top-nav')
+           
             <div class="container">
-            @endif
+           
 
             <!-- Content Header (Page header) -->
             <section class="content-header">
@@ -119,10 +102,10 @@
 
             </section>
             <!-- /.content -->
-            @if(config('adminlte.layout') == 'top-nav')
+            
             </div>
             <!-- /.container -->
-            @endif
+          
         </div>
         <!-- /.content-wrapper -->
 
