@@ -13,6 +13,15 @@
   margin: 0 auto;
 }
 
+.btn-purple {
+  background: #220A37;
+  color: #fff;
+}
+.btn-purple:hover {
+  background: #605ca8;
+  color: #fff;
+}
+
 #home a h2 {
   font-size: 30px;
   font-weight: bold;
@@ -55,6 +64,10 @@
 #home .info span {
   color: #a9a9a9;
   margin: 0 10px 0 4px;
+}
+
+#post .box-purple {
+  border-top-color: #220A37;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -3,6 +3,7 @@
 // Variables
 @import "variables";
 
+
 .content-wrapper{
 	margin-left: 0;
     background-color: #fcfcfc;
@@ -20,6 +21,15 @@
 .centered{
     float: none;
     margin: 0 auto;
+}
+
+.btn-purple{
+	background: $purple;
+	color:#fff;
+	&:hover{
+		background: #605ca8;
+		color:#fff;
+	}
 }
 
 #home{
@@ -69,5 +79,11 @@
 			color: $light-gray;
 			margin:0 10px 0 4px
 		}
+	}
+}
+
+#post{
+	.box-purple {
+	  	border-top-color: $purple;
 	}
 }

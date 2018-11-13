@@ -3,6 +3,7 @@
 @section('adminlte_css')
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/plugins/iCheck/square/blue.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/css/auth.css') }}">
+     <link href="{{ asset('css/main.css') }}" rel="stylesheet">   
     @yield('css')
 @stop
 
@@ -11,7 +12,7 @@
 @section('body')
     <div class="login-box">
         <div class="login-logo">
-            <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
+            <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Blog</b>ZÃO') !!}</a>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
@@ -41,11 +42,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-8">
-                        <div class="checkbox icheck">
-                            <label>
-                                <input type="checkbox" name="remember"> {{ trans('adminlte::adminlte.remember_me') }}
-                            </label>
-                        </div>
+                       
                     </div>
                     <!-- /.col -->
                     <div class="col-xs-4">
@@ -56,9 +53,7 @@
                 </div>
             </form>
             <div class="auth-links">
-                <a href="{{ url(config('adminlte.password_reset_url', 'password/reset')) }}"
-                   class="text-center"
-                >{{ trans('adminlte::adminlte.i_forgot_my_password') }}</a>
+                
                 <br>
                 @if (config('adminlte.register_url', 'register'))
                     <a href="{{ url(config('adminlte.register_url', 'register')) }}"
