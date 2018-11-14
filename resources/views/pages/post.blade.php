@@ -18,9 +18,9 @@
 			            </div>
 			            <div class="form-group">
 		                  	<label for="exampleInputFile">Arquivos</label>
-		                  	<input type="file" id="exampleInputFile">
+		                  	<input type="file" id="exampleInputFile" multiple>
 
-                  			<p class="help-block">Example block-level help text here.</p>
+                  			<p class="help-block">Fomatos jpg, png e pdf.</p>
                 		</div>
 			    		<textarea name="content" id="editor"></textarea>
 		    		</div>
