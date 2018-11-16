@@ -19,8 +19,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/post', 'PostController@index')->name('post');
+Route::get('/search', 'SearchController@index')->name('search');
+Route::get('/details', 'DetailsController@index')->name('details');
+Route::get('/my-posts', 'MyController@index')->name('my');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/post', 'PostController@index')->name('post');
+Route::get('/search', 'SearchController@index')->name('search');
+Route::get('/details', 'DetailsController@index')->name('details');
