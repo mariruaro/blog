@@ -22,9 +22,27 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        if ($request->hasFile('documents')) 
+        { 
+            $files = $request->file('documents'); 
+ 
+            foreach ($files as $file) {
+ 
+                $filename = $file->getClientOriginalName(); 
+ 
+                $extension = $file->getClientOriginalExtension(); 
+
+                $filename = $file->store('documents');
+
+                echo "Upload Successfully"; 
+            }
+        }
+        else 
+        {
+            echo '<div class="alert alert-warning"><strong>Warning!</strong> Sorry Only Upload png , jpg , doc</div>'; 
+        }
     }
 
     /**
