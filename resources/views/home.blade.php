@@ -8,7 +8,7 @@
 
 @section('content')
     <div id="home" class="row ">
-    	<div class="col-md-8 centered">
+    	<div class="col-md-8 centered post">
 			<a>
 				<h2>Título Post</h2>
 			</a>
@@ -26,5 +26,7 @@
 			<p>
 			<a type="button" class="btn btn-more">Leia Mais</a>
     	</div>
+
+
     </div>
 @stop

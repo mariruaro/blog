@@ -24,7 +24,7 @@
                 <div class="container">
                     <div class="navbar-header">
                         <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}" class="navbar-brand">
-                            {!! config('adminlte.logo', '<b>Admin</b>LTE') !!}
+                            {!! config('adminlte.logo', '<b>Blog</b>ZÃO') !!}
                         </a>
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                             <i class="fa fa-bars"></i>
@@ -42,25 +42,56 @@
             <!-- Logo -->
             <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini">{!! config('adminlte.logo_mini', '<b>A</b>LT') !!}</span>
+                <span class="logo-mini">{!! config('adminlte.logo_mini', '<b>B</b>ZÂO') !!}</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</span>
+                <span class="logo-lg">{!! config('adminlte.logo', '<b>Blog</b>ZÃO') !!}</span>
+
             </a>
+
+
 
             <!-- Header Navbar -->
             <nav class="navbar navbar-static-top" role="navigation">
                 <!-- Sidebar toggle button-->
                
             @endif
+                <div class="navbar-custom-menu nav-left">
+                    <ul class="nav navbar-nav nav-left">
+                        <li class="link">
+                            <a href="">Novo Post</a>
+                        </li>
+                         <li class="link">
+                            <a href="">Meus Posts</a>
+                        </li>
+                        <li class="search ">
+                            <form action="#" method="get">
+                                <div class="input-group ">
+                                  <input type="text" name="q" class="form-control" placeholder="Pesquisar...">
+                                  <span class="input-group-btn">
+                                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                                        </button>
+                                      </span>
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
                 <!-- Navbar Right Menu -->
                 <div class="navbar-custom-menu">
 
                     <ul class="nav navbar-nav">
                         <li>
+                            <div class="user-div">
+                              <i class="fa fa-user fa-fw "></i>
+                              <span class="hidden-xs">Alexander Pierce</span>
+                            </div>
+                        </li>
+                        <li>
                             @if(config('adminlte.logout_method') == 'GET' || !config('adminlte.logout_method') && version_compare(\Illuminate\Foundation\Application::VERSION, '5.3.0', '<'))
                                 <a href="{{ url(config('adminlte.logout_url', 'auth/logout')) }}">
                                     <i class="fa fa-fw fa-power-off"></i> {{ trans('adminlte::adminlte.log_out') }}
                                 </a>
+
                             @else
                                 <a href="#"
                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"

@@ -1,3 +1,24 @@
+.nav-left {
+  float: left !important;
+}
+.nav-left .link {
+  border-right: 1px solid #d2d6de;
+}
+.nav-left .link a {
+  border-right: none !important;
+  border-left: none !important;
+}
+.nav-left .search {
+  padding: 8px;
+  width: 200px;
+}
+
+.nav .user-div {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 15px;
+}
+
 .content-wrapper {
   margin-left: 0;
   background-color: #fcfcfc;
@@ -50,6 +71,7 @@
   border-radius: 50px;
   font-weight: bold;
   color: #220A37;
+  margin-bottom: 10px;
 }
 #home .btn-more:hover {
   border: 2px solid #555;
@@ -68,6 +90,9 @@
 
 #post .box-purple {
   border-top-color: #220A37;
+}
+#post .ck-content p {
+  height: 200px;
 }
 
 /*# sourceMappingURL=main.css.map */

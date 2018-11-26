@@ -3,6 +3,28 @@
 // Variables
 @import "variables";
 
+.nav-left{
+	float:left !important;
+	.link{
+	    border-right: 1px solid #d2d6de;
+		a{
+	    	border-right: none !important;
+	    	border-left: none !important;
+		}
+	}
+	.search{
+    	padding: 8px;
+    	width:200px;
+	}
+}
+
+.nav{
+	.user-div{
+	    padding-top: 15px;
+    	padding-bottom: 15px;
+    	padding-right: 15px;
+	}
+}
 
 .content-wrapper{
 	margin-left: 0;
@@ -64,6 +86,7 @@
 	    border-radius: 50px;
 	    font-weight: bold;
 	    color:$purple;
+	    margin-bottom: 10px;
 	    &:hover{
 			border: 2px solid $dark-gray;
 			color:$dark-gray;
@@ -85,5 +108,10 @@
 #post{
 	.box-purple {
 	  	border-top-color: $purple;
+	}
+	.ck-content{
+		p{
+			height: 200px
+		}
 	}
 }
