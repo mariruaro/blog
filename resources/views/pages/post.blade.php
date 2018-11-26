@@ -55,7 +55,7 @@
 			var formData = new FormData($('this')[0]);
 			//var formData = new FormData();
 			//formData.append('file', $('input[type=file]')[0].files[0]);
-
+			
 			$.ajax({
 				url: 'http://localhost:8000/post/create',
 				type: 'POST',
