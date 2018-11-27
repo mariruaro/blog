@@ -43,16 +43,42 @@
   color: #fff;
 }
 
-#home a h2 {
+.btn-more {
+  margin-top: 20px;
+  font-size: 18px;
+  background: transparent;
+  border: 2px solid #220A37;
+  border-radius: 50px;
+  font-weight: bold;
+  color: #220A37;
+  margin-bottom: 10px;
+}
+.btn-more:hover {
+  border: 2px solid #555;
+  color: #555;
+}
+
+.back-row h1 {
+  display: inline;
+}
+.back-row span {
+  font-size: 40px;
+  color: #220A37;
+}
+.back-row span:hover {
+  color: #605ca8;
+}
+
+#home a h2, #my a h2 {
   font-size: 30px;
   font-weight: bold;
   color: #220A37;
 }
-#home a h2:hover {
+#home a h2:hover, #my a h2:hover {
   color: #555;
   cursor: pointer;
 }
-#home p {
+#home p, #my p {
   font-size: 16px;
   display: -webkit-box;
   margin: 0 auto;
@@ -63,27 +89,19 @@
   max-height: 110px;
   /* Fallback for non-webkit */
 }
-#home .btn-more {
-  margin-top: 20px;
-  font-size: 18px;
-  background: transparent;
-  border: 2px solid #220A37;
-  border-radius: 50px;
-  font-weight: bold;
-  color: #220A37;
+#home img, #my img {
+  width: 100%;
+  height: 200px;
+  margin: 15px 0;
+  object-fit: cover;
+}
+#home .info, #my .info {
   margin-bottom: 10px;
 }
-#home .btn-more:hover {
-  border: 2px solid #555;
-  color: #555;
-}
-#home .info {
-  margin-bottom: 10px;
-}
-#home .info i {
+#home .info i, #my .info i {
   color: #a9a9a9;
 }
-#home .info span {
+#home .info span, #my .info span {
   color: #a9a9a9;
   margin: 0 10px 0 4px;
 }
@@ -93,6 +111,56 @@
 }
 #post .ck-content p {
   height: 200px;
+}
+
+#details h2 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #220A37;
+}
+#details p {
+  font-size: 16px;
+}
+#details .info {
+  margin-bottom: 10px;
+}
+#details .info i {
+  color: #a9a9a9;
+}
+#details .info span {
+  color: #a9a9a9;
+  margin: 0 10px 0 4px;
+}
+#details img {
+  width: 100%;
+  margin: 15px 0;
+}
+
+#search a h2 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #220A37;
+}
+#search a h2:hover {
+  color: #555;
+  cursor: pointer;
+}
+#search p {
+  font-size: 16px;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#search .info {
+  margin-bottom: 10px;
+}
+#search .info i {
+  color: #a9a9a9;
+}
+#search .info span {
+  color: #a9a9a9;
+  margin: 0 10px 0 4px;
 }
 
 /*# sourceMappingURL=main.css.map */
