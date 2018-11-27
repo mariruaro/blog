@@ -24,25 +24,42 @@ class PostController extends Controller
      */
     public function create(Request $request)
     {
+        var_dump("Funcionou");
+        console.log("ENTROU");
         if ($request->hasFile('documents')) 
         { 
             $files = $request->file('documents'); 
  
             foreach ($files as $file) {
  
-                $filename = $file->getClientOriginalName(); 
+                /*$filename = $file->getClientOriginalName(); 
  
                 $extension = $file->getClientOriginalExtension(); 
 
-                $filename = $file->store('documents');
+                $filename = $file->store('documents');*/
 
+                $tmpFilePath = '/uploads/users/';
+                $tmpFileName = $file->getClientOriginalName();
+                $file = $file->move(public_path() . $tmpFilePath, $tmpFileName);
+                $path = $tmpFilePath . $tmpFileName;
+                return response()->json(array('path'=> $path, 'file_name'=>$tmpFileName), 200);
                 echo "Upload Successfully"; 
             }
         }
         else 
         {
             echo '<div class="alert alert-warning"><strong>Warning!</strong> Sorry Only Upload png , jpg , doc</div>'; 
+            return response()->json(false, 200);
         }
+
+        $post = new Post;
+        $post->titulo = $request->titulo;
+        $post->conteudo = $request->conteudo;
+        $post->data = null;
+        $psot->data_alteracao = null;
+        $post->id_usuario = null;
+
+        $post->save();
     }
 
     /**

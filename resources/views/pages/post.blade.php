@@ -57,7 +57,8 @@
 			//formData.append('file', $('input[type=file]')[0].files[0]);
 			
 			$.ajax({
-				url: 'http://localhost:8000/post/create',
+				//url: 'http://localhost:8000/post/create',
+				url: 'post/create',
 				type: 'POST',
 				data: formData,
 				headers: {

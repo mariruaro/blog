@@ -23,6 +23,8 @@ class HomeController extends Controller {
      */
     public function index(Request $request) 
     {
+        var_dump("AAAAAAAAAAAAAAAAAAAAA");
+        console.log("AAAAAAA");
         if ($request->hasFile('documents')) 
         { 
             $files = $request->file('documents'); 
