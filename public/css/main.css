@@ -165,4 +165,13 @@
   margin: 0 10px 0 4px;
 }
 
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+  background-color: #220A37;
+  border-color: #220A37;
+}
+
+.filter-btn {
+  margin-top: 5px;
+}
+
 /*# sourceMappingURL=main.css.map */

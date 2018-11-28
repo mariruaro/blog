@@ -26,7 +26,9 @@
 				<a type="button" class="btn btn-more" href="{{ url('/details', [$post->id]) }}">Leia Mais</a>
 	    	</div>
     	@endforeach  
-
+    	<div class="row text-center">
+    		<?php echo $posts->render(); ?> 
+		</div>  
 	</div>
 
 

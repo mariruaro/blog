@@ -24,7 +24,6 @@
 					<i class="fa fa-calendar-o"></i>
 					<span>{{$post->data}}</span>
 				</div>
-				<img src="http://fncit.com.br/blog/wp-content/uploads/2017/10/banner-post-blog.jpg" alt="Banner" >
 				<p>
 					{!!$post->conteudo!!}
 				<p>

@@ -16,7 +16,7 @@ class MyController extends Controller
     public function index()
     {
     	$id = Auth::user()->id;
-    	$posts = DB::table('post')->where('id_usuario', $id)->get();
+    	$posts = DB::table('post')->where('id_usuario', $id)->orderBy('data', 'desc')->paginate(5);
 
         return view('pages/my', ['posts' => $posts]);
    

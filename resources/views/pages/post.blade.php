@@ -15,7 +15,7 @@
 		    		<div class="box-body">
 			    		<div class="form-group">
 			              	<label>Título</label>
-			              	<input type="text" class="form-control" name="titulo" id="titulo" placeholder="Título ...">
+			              	<input type="text" class="form-control" name="titulo" id="titulo" placeholder="Título ..." required="true">
 			            </div>
 			            <div class="form-group">
 		                  	<label for="exampleInputFile">Arquivos</label>
@@ -23,7 +23,7 @@
 
                   			<p class="help-block">Fomatos jpg, png e pdf.</p>
                 		</div>
-			    		<textarea id="editor" name="conteudo" ></textarea>
+			    		<textarea id="editor" name="conteudo" required="true"></textarea>
 			    		
 		    		</div>
 		    		<div class="box-footer">
