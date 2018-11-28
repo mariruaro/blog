@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -24,8 +27,8 @@ class PostController extends Controller
      */
     public function create(Request $request)
     {
-        var_dump("Funcionou");
-        console.log("ENTROU");
+        $inputs = $request->all();
+        
         if ($request->hasFile('documents')) 
         { 
             $files = $request->file('documents'); 
@@ -46,18 +49,15 @@ class PostController extends Controller
                 echo "Upload Successfully"; 
             }
         }
-        else 
-        {
-            echo '<div class="alert alert-warning"><strong>Warning!</strong> Sorry Only Upload png , jpg , doc</div>'; 
-            return response()->json(false, 200);
-        }
-
+        
+        $id = Auth::user()->id;
+        $name = Auth::user()->name;
         $post = new Post;
-        $post->titulo = $request->titulo;
-        $post->conteudo = $request->conteudo;
-        $post->data = null;
-        $psot->data_alteracao = null;
-        $post->id_usuario = null;
+        $post->titulo =  $inputs['titulo'];
+        $post->conteudo = $inputs['conteudo'];
+        
+        $post->nome_usuario = $name;
+        $post->id_usuario = $id;
 
         $post->save();
     }

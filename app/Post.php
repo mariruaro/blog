@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     protected $table = 'post';
+    public $timestamps = false;
 
     protected $fillable = [
-        'titulo', 'conteudo', 'data', 'data_alteracao', 'id_usuario'
+        'titulo', 'conteudo', 'id_usuario', 'nome_usuario'
     ];
 
 }

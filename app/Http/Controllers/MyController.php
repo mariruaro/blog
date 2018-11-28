@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class MyController extends Controller
 {
@@ -13,6 +15,10 @@ class MyController extends Controller
      */
     public function index()
     {
-        return view('pages/my');
+    	$id = Auth::user()->id;
+    	$posts = DB::table('post')->where('id_usuario', $id)->get();
+
+        return view('pages/my', ['posts' => $posts]);
+   
     }
 }

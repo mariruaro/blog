@@ -1,10 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Detalhes')
 
 @section('content_header')
     <div class="back-row">
-    	<a href="">
+    	<a href="javascript:history.back()">
     		<span>&#8678;</span>
     	</a>
     	<h1>Detalhes</h1>

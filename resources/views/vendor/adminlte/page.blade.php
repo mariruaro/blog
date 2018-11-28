@@ -57,11 +57,11 @@
             @endif
                 <div class="navbar-custom-menu nav-left">
                     <ul class="nav navbar-nav nav-left">
-                        <li class="link">
-                            <a href="">Novo Post</a>
+                        <li class="link {{ request()->is('post') ? 'active' : '' }}">
+                            <a href="/post">Novo Post</a>
                         </li>
-                         <li class="link">
-                            <a href="">Meus Posts</a>
+                         <li class="link {{ request()->is('my-posts') ? 'active' : '' }}">
+                            <a href="/my-posts">Meus Posts</a>
                         </li>
                         <li class="search ">
                             <form action="#" method="get">
@@ -83,7 +83,7 @@
                         <li>
                             <div class="user-div">
                               <i class="fa fa-user fa-fw "></i>
-                              <span class="hidden-xs">Alexander Pierce</span>
+                              <span class="hidden-xs">{{{ Auth::user()->name}}}</span>
                             </div>
                         </li>
                         <li>
