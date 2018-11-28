@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DetailsController extends Controller
 {
@@ -11,8 +12,11 @@ class DetailsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return view('pages/details');
+    	
+    	$post = DB::table('post')->where('id', $id)->get()[0];
+    	
+        return view('pages/details', compact('post'));
     }
 }

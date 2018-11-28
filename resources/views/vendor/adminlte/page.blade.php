@@ -64,11 +64,12 @@
                             <a href="/my-posts">Meus Posts</a>
                         </li>
                         <li class="search ">
-                            <form action="#" method="get">
+                            <form id="search-text" name="search-form" autocomplete="off" action="/search" method="get" enctype="multipart/form-data">
+                                <meta name="csrf-token" content="{{ csrf_token() }}">
                                 <div class="input-group ">
-                                  <input type="text" name="q" class="form-control" placeholder="Pesquisar...">
+                                  <input type="text" name="text" class="form-control" id="text" placeholder="Pesquisar...">
                                   <span class="input-group-btn">
-                                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                                        <button type="submit"  id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                                         </button>
                                       </span>
                                 </div>
@@ -146,6 +147,9 @@
 
 @section('adminlte_js')
     <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
+    <script>
+
+    </script>
     @stack('js')
     @yield('js')
 @stop

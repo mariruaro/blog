@@ -22,7 +22,7 @@ Route::get('/post', 'PostController@index')->name('post');
 Route::post('post/create', 'PostController@create')->name('post_create');
 
 Route::get('/search', 'SearchController@index')->name('search');
-Route::get('/details', 'DetailsController@index')->name('details');
+Route::get('/details/{id}', 'DetailsController@index')->name('details');
 Route::get('/my-posts', 'MyController@index')->name('my');
 
 Auth::routes();
@@ -30,4 +30,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/post', 'PostController@index')->name('post');
 Route::get('/search', 'SearchController@index')->name('search');
-Route::get('/details', 'DetailsController@index')->name('details');
+Route::get('/details/{id}', 'DetailsController@index')->name('details');

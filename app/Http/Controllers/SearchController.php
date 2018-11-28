@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SearchController extends Controller
 {
@@ -11,8 +12,12 @@ class SearchController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('pages/search');
+    	$inputs = $request->all();
+    	$filter =  $inputs['text'];
+    	$posts = DB::table('post')->where('titulo','LIKE','%'.$filter."%")->orWhere('conteudo','LIKE','%'.$filter."%")->get();
+    	
+        return view('pages/search', compact('posts', 'filter'));
     }
 }

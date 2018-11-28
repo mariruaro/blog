@@ -10,7 +10,7 @@
     <div id="postForm" class="row">
     	<div class="col-md-8 centered">
     		<div class="box box-purple">
-		    	<form  id="postCreate" name="signup-form" autocomplete="off" action="/post/create" method="post" enctype="multipart/form-data">
+		    	<form  id="postCreate" name="post-form" autocomplete="off" action="/post/create" method="post" enctype="multipart/form-data">
 					<meta name="csrf-token" content="{{ csrf_token() }}">
 		    		<div class="box-body">
 			    		<div class="form-group">
@@ -23,8 +23,8 @@
 
                   			<p class="help-block">Fomatos jpg, png e pdf.</p>
                 		</div>
-			    		<!-- <textarea id="editor" name="conteudo" ></textarea> -->
-			    		<textarea class="form-control" name="conteudo"  rows="10"></textarea>
+			    		<textarea id="editor" name="conteudo" ></textarea>
+			    		
 		    		</div>
 		    		<div class="box-footer">
 	                	<button type="submit" class="btn btn-purple pull-right">Salvar</button>
@@ -44,11 +44,11 @@
 
 	<script>
 		$(document).ready(function() {
-		    // ClassicEditor
-		    //     .create( document.querySelector( '#editor' ) )
-		    //     .catch( error => {
-		    //         console.error( error );
-	     //    } );
+		    ClassicEditor
+		        .create( document.querySelector( '#editor' ) )
+		        .catch( error => {
+		            console.error( error );
+	        } );
 
 		    $('#postCreate').on('submit', function (e) {
 		        e.preventDefault();
