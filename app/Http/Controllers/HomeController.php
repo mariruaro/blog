@@ -25,8 +25,9 @@ class HomeController extends Controller
     public function index()
     {
         $posts = DB::table('post')->orderBy('data', 'desc')->paginate(5);
+        $header = DB::table('arquivos')->where('favorite', true)->get();
 
-        return view('home', ['posts' => $posts]);
+        return view('home', ['posts' => $posts], ['header' => $header]);
     }
 
     
