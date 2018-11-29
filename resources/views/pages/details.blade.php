@@ -33,7 +33,7 @@
 			<div class="row">
 				@foreach ($arquivo as $file)
 					<a class="btn btn-app" href="{{ url("storage/{$file->arquivo}") }}">
-		            	<i class="fa fa-save" title="nome do arquivo"></i> 
+		            	<i class="fa fa-save" title="{{$file->nm_arquivo}}"></i> 
 		            	<span>Salvar</span>
 		          	</a>
 	          	@endforeach 
