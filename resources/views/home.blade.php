@@ -8,7 +8,7 @@
 
 @section('content')
     <div id="home" class="row ">
-    	<div class="form-group pull-right">
+    	<div class="form-group pull-right col-md-2">
     		<label>Filtro Data</label>
            	<form id="search-date" name="search-date" autocomplete="off" action="/search/date" method="get" enctype="multipart/form-data"> 
 	            <label>Data Inicial:</label>
@@ -19,7 +19,7 @@
 	            <div class="input-group date">
 	              	<input type="datetime-local" class="form-control" name="final">
 	            </div>
-	            <button type="submit" class="btn btn-purple pull-right filter-btn">Filtrar</button>
+	            <button type="submit" class="btn btn-purple pull-left filter-btn">Filtrar</button>
             </form>
       	</div>
     	@foreach ($posts as $post)
