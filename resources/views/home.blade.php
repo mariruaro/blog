@@ -13,11 +13,11 @@
            	<form id="search-date" name="search-date" autocomplete="off" action="/search/date" method="get" enctype="multipart/form-data"> 
 	            <label>Data Inicial:</label>
 	            <div class="input-group ">
-	              	<input type="date" class="form-control" name="initial">
+	              	<input type="datetime-local" class="form-control" name="initial">
 	            </div>
 	            <label>Data Final:</label>
 	            <div class="input-group date">
-	              	<input type="date" class="form-control" name="final">
+	              	<input type="datetime-local" class="form-control" name="final">
 	            </div>
 	            <button type="submit" class="btn btn-purple pull-right filter-btn">Filtrar</button>
             </form>
