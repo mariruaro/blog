@@ -18,8 +18,14 @@
 			              	<input type="text" class="form-control" name="titulo" id="titulo" placeholder="Título ..." required="true">
 			            </div>
 			            <div class="form-group">
+		                  	<label for="exampleInputFile">Imagem de destaque</label>
+		                  	<input type="file" id="exampleInputFile" name="favorite"  >
+
+                  			<p class="help-block">Fomatos jpg e png.</p>
+                		</div>
+			            <div class="form-group">
 		                  	<label for="exampleInputFile">Arquivos</label>
-		                  	<input type="file" id="exampleInputFile" name="arquivo"  multiple>
+		                  	<input type="file" id="exampleInputFile" name="arquivo[]"  multiple>
 
                   			<p class="help-block">Fomatos jpg, png e pdf.</p>
                 		</div>

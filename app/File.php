@@ -10,7 +10,7 @@ class File extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'nm_arquivo', 'arquivo', 'tipo', 'id_post','tamanho'
+        'nm_arquivo', 'arquivo', 'tipo', 'id_post','tamanho', 'favorite'
     ];
 
 }

@@ -31,28 +31,7 @@ class PostController extends Controller
     public function create(Request $request)
     {
         $inputs = $request->all();
-
-        
-        // if ($request->hasFile('documents')) 
-        // { 
-        //     $files = $request->file('documents'); 
- 
-        //     foreach ($files as $file) {
- 
-        //         /*$filename = $file->getClientOriginalName(); 
- 
-        //         $extension = $file->getClientOriginalExtension(); 
-
-        //         $filename = $file->store('documents');*/
-
-        //         $tmpFilePath = '/uploads/users/';
-        //         $tmpFileName = $file->getClientOriginalName();
-        //         $file = $file->move(public_path() . $tmpFilePath, $tmpFileName);
-        //         $path = $tmpFilePath . $tmpFileName;
-        //         return response()->json(array('path'=> $path, 'file_name'=>$tmpFileName), 200);
-        //         echo "Upload Successfully"; 
-        //     }
-        // }
+        $tempFiles = $inputs['arquivo'];
         
         $id = Auth::user()->id;
         $name = Auth::user()->name;
@@ -67,25 +46,16 @@ class PostController extends Controller
 
         $id = $post->id;
 
-        //$responsePost = response()->json(array('last_insert_id' => $post->id), 200);
-        //$json = json_decode($responsePost);
-
-        //print($json['last_insert_id']);
-
-        if ($request->hasFile('arquivo')) {
-
+        if ($request->hasFile('favorite')) {
             $validation = $request->validate([
-                'arquivo' => 'required|file|max:2048',
-                //'arquivo' => 'required|image|max:2048',
+                'favorite' => 'required|image|max:2048',
                 // for multiple file uploads
                 // 'photo.*' => 'required|file|image|mimes:jpeg,png,gif,webp|max:2048'
             ]);
-            
-            $file      = $validation['arquivo']; // get the validated file
-
+            $file      = $validation['favorite']; // get the validated file
             $extension = $file->getClientOriginalExtension();
             $name = $file->getClientOriginalName();
-            $filename  = $name . time() . '.' . $extension;
+            $filename  = time() . $name;
             $size = $file->getClientSize();
             $path = $file->storeAs('photos', $filename);
             
@@ -95,7 +65,32 @@ class PostController extends Controller
             $img->tipo =  $extension;
             $img->tamanho =  $size;
             $img->id_post =  $id;
+            $img->favorite = true;
             $img->save();
+        }
+
+
+
+        if ($request->hasFile('arquivo')) {
+
+            foreach ($tempFiles as $file) {
+            
+           
+                $extension = $file->getClientOriginalExtension();
+                $name = $file->getClientOriginalName();
+                $filename  = time() . $name;
+                $size = $file->getClientSize();
+                $path = $file->storeAs('photos', $filename);
+                
+                $img = new File;
+                $img->arquivo =  $path;
+                $img->nm_arquivo =  $filename;
+                $img->tipo =  $extension;
+                $img->tamanho =  $size;
+                $img->id_post =  $id;
+                $img->save();
+
+            }
 
         }
 
