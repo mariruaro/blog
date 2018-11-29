@@ -21,19 +21,22 @@
 				<i class="fa fa-calendar-o"></i>
 				<span>{{$post->data}}</span>
 			</div>
-			<div class="">
-				<img src="http://fncit.com.br/blog/wp-content/uploads/2017/10/banner-post-blog.jpg" alt="Banner" >
-			</div>
-			<img src="{{ url("storage/{$arquivo->arquivo}") }}" >
+			@foreach ($arquivo as $img)
+				@if ($img->id_post == $post->id && $img->favorite == true)
+					<img src="{{ url("storage/{$img->arquivo}") }}" alt="Banner" >
+				@endif
+			@endforeach 
 			<p>
 				{!!$post->conteudo!!}
 			<p>
 
 			<div class="row">
-				<a class="btn btn-app">
-	            	<i class="fa fa-save" title="nome do arquivo"></i> 
-	            	<span>Salvar</span>
-	          	</a>
+				@foreach ($arquivo as $file)
+					<a class="btn btn-app" href="{{ url("storage/{$file->arquivo}") }}">
+		            	<i class="fa fa-save" title="nome do arquivo"></i> 
+		            	<span>Salvar</span>
+		          	</a>
+	          	@endforeach 
           	</div>
     	</div>
 	</div>

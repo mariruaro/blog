@@ -17,8 +17,9 @@ class MyController extends Controller
     {
     	$id = Auth::user()->id;
     	$posts = DB::table('post')->where('id_usuario', $id)->orderBy('data', 'desc')->paginate(5);
+        $header = DB::table('arquivos')->where('favorite', true)->get();
 
-        return view('pages/my', ['posts' => $posts]);
+        return view('pages/my', ['posts' => $posts], ['header' => $header]);
    
     }
 }

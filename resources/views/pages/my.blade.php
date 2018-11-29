@@ -19,7 +19,11 @@
 					<i class="fa fa-calendar-o"></i>
 					<span>{{$post->data}}</span>
 				</div>
-				<img src="http://fncit.com.br/blog/wp-content/uploads/2017/10/banner-post-blog.jpg" alt="Banner" >
+				@foreach ($header as $img)
+					@if ($img->id_post == $post->id)
+						<img src="{{ url("storage/{$img->arquivo}") }}" alt="Banner" >
+					@endif
+				@endforeach 
 				<p>
 					{!!$post->conteudo!!}
 				<p>
