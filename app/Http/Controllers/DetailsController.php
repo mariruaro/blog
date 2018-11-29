@@ -16,7 +16,8 @@ class DetailsController extends Controller
     {
     	
     	$post = DB::table('post')->where('id', $id)->get()[0];
+        $arquivo = DB::table('arquivos')->where('id_post', 15)->get()[0];
     	
-        return view('pages/details', compact('post'));
+        return view('pages/details', compact('post','arquivo'));
     }
 }

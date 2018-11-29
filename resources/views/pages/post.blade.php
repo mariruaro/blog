@@ -23,7 +23,7 @@
 
                   			<p class="help-block">Fomatos jpg, png e pdf.</p>
                 		</div>
-			    		<textarea id="editor" name="conteudo" required="true"></textarea>
+			    		<textarea id="editor" name="conteudo" ></textarea>
 			    		
 		    		</div>
 		    		<div class="box-footer">

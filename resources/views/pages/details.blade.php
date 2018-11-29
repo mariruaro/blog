@@ -24,6 +24,7 @@
 			<div class="">
 				<img src="http://fncit.com.br/blog/wp-content/uploads/2017/10/banner-post-blog.jpg" alt="Banner" >
 			</div>
+			<img src="{{ url("storage/{$arquivo->arquivo}") }}" >
 			<p>
 				{!!$post->conteudo!!}
 			<p>

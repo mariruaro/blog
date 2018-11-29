@@ -7,6 +7,8 @@ use App\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\UploadedFile;
+
 
 class PostController extends Controller
 {
@@ -28,38 +30,60 @@ class PostController extends Controller
     public function create(Request $request)
     {
         $inputs = $request->all();
+
         
-        if ($request->hasFile('documents')) 
-        { 
-            $files = $request->file('documents'); 
+        // if ($request->hasFile('documents')) 
+        // { 
+        //     $files = $request->file('documents'); 
  
-            foreach ($files as $file) {
+        //     foreach ($files as $file) {
  
-                /*$filename = $file->getClientOriginalName(); 
+        //         /*$filename = $file->getClientOriginalName(); 
  
-                $extension = $file->getClientOriginalExtension(); 
+        //         $extension = $file->getClientOriginalExtension(); 
 
-                $filename = $file->store('documents');*/
+        //         $filename = $file->store('documents');*/
 
-                $tmpFilePath = '/uploads/users/';
-                $tmpFileName = $file->getClientOriginalName();
-                $file = $file->move(public_path() . $tmpFilePath, $tmpFileName);
-                $path = $tmpFilePath . $tmpFileName;
-                return response()->json(array('path'=> $path, 'file_name'=>$tmpFileName), 200);
-                echo "Upload Successfully"; 
-            }
+        //         $tmpFilePath = '/uploads/users/';
+        //         $tmpFileName = $file->getClientOriginalName();
+        //         $file = $file->move(public_path() . $tmpFilePath, $tmpFileName);
+        //         $path = $tmpFilePath . $tmpFileName;
+        //         return response()->json(array('path'=> $path, 'file_name'=>$tmpFileName), 200);
+        //         echo "Upload Successfully"; 
+        //     }
+        // }
+        
+        // $id = Auth::user()->id;
+        // $name = Auth::user()->name;
+        // $post = new Post;
+        // $post->titulo =  $inputs['titulo'];
+        // $post->conteudo = $inputs['conteudo'];
+        
+        // $post->nome_usuario = $name;
+        // $post->id_usuario = $id;
+
+        // $post->save();
+
+         if ($request->hasFile('arquivo')) {
+            $validation = $request->validate([
+                'arquivo' => 'required|image|max:2048',
+                // for multiple file uploads
+                // 'photo.*' => 'required|file|image|mimes:jpeg,png,gif,webp|max:2048'
+            ]);
+             $file      = $validation['arquivo']; // get the validated file
+            $extension = $file->getClientOriginalExtension();
+            $filename  = 'file-' . time() . '.' . $extension;
+            var_dump($filename);
+            $path = $file->storeAs('photos', $filename);
+
+            $img = new File;
+            $img->arquivo =  $path;
+            $img->nm_arquivo =  $filename;
+            $img->tipo =  $extension;
+            $img->tamanho =  555;
+            $img->id_post =  15;
+            $img->save();
         }
-        
-        $id = Auth::user()->id;
-        $name = Auth::user()->name;
-        $post = new Post;
-        $post->titulo =  $inputs['titulo'];
-        $post->conteudo = $inputs['conteudo'];
-        
-        $post->nome_usuario = $name;
-        $post->id_usuario = $id;
-
-        $post->save();
     }
 
     /**
