@@ -53,36 +53,45 @@ class PostController extends Controller
         //     }
         // }
         
-        // $id = Auth::user()->id;
-        // $name = Auth::user()->name;
-        // $post = new Post;
-        // $post->titulo =  $inputs['titulo'];
-        // $post->conteudo = $inputs['conteudo'];
+        $id = Auth::user()->id;
+        $name = Auth::user()->name;
+        $post = new Post;
+        $post->titulo =  $inputs['titulo'];
+        $post->conteudo = $inputs['conteudo'];
         
-        // $post->nome_usuario = $name;
-        // $post->id_usuario = $id;
+        $post->nome_usuario = $name;
+        $post->id_usuario = $id;
 
-        // $post->save();
+        $post->save();
 
-         if ($request->hasFile('arquivo')) {
+        //$responsePost = response()->json(array('last_insert_id' => $post->id), 200);
+        //$json = json_decode($responsePost);
+
+        //print($json['last_insert_id']);
+
+        if ($request->hasFile('arquivo')) {
+
             $validation = $request->validate([
-                'arquivo' => 'required|image|max:2048',
+                'arquivo' => 'required|file|max:2048',
+                //'arquivo' => 'required|image|max:2048',
                 // for multiple file uploads
                 // 'photo.*' => 'required|file|image|mimes:jpeg,png,gif,webp|max:2048'
             ]);
-             $file      = $validation['arquivo']; // get the validated file
+            
+            $file      = $validation['arquivo']; // get the validated file
+
             $extension = $file->getClientOriginalExtension();
             $filename  = 'file-' . time() . '.' . $extension;
-            var_dump($filename);
             $path = $file->storeAs('photos', $filename);
-
+            
             $img = new File;
             $img->arquivo =  $path;
             $img->nm_arquivo =  $filename;
             $img->tipo =  $extension;
             $img->tamanho =  555;
-            $img->id_post =  15;
+            $img->id_post =  19;
             $img->save();
+
         }
     }
 
