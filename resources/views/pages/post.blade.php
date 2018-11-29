@@ -76,6 +76,14 @@
 		                }
 		                return myXhr;
 		            },
+		            success: function (response) {
+		               
+                    if(response.redirect)
+                    {
+                        window.location = "/home";
+                    }
+		                
+            		},
 		            
 		        });
 		    });

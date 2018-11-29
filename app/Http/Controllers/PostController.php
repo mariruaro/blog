@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\UploadedFile;
@@ -64,6 +65,8 @@ class PostController extends Controller
 
         $post->save();
 
+        $id = $post->id;
+
         //$responsePost = response()->json(array('last_insert_id' => $post->id), 200);
         //$json = json_decode($responsePost);
 
@@ -81,18 +84,30 @@ class PostController extends Controller
             $file      = $validation['arquivo']; // get the validated file
 
             $extension = $file->getClientOriginalExtension();
-            $filename  = 'file-' . time() . '.' . $extension;
+            $name = $file->getClientOriginalName();
+            $filename  = $name . time() . '.' . $extension;
+            $size = $file->getClientSize();
             $path = $file->storeAs('photos', $filename);
             
             $img = new File;
             $img->arquivo =  $path;
             $img->nm_arquivo =  $filename;
             $img->tipo =  $extension;
-            $img->tamanho =  555;
-            $img->id_post =  19;
+            $img->tamanho =  $size;
+            $img->id_post =  $id;
             $img->save();
 
         }
+
+        return response()->json([
+            "status" => "200",
+            "success" => true,
+            "redirect" => true,
+            'title' => 'Sucesso!',
+            "message" => 'Post Inluído'
+        ]);
+       
+        
     }
 
     /**
