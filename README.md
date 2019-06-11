@@ -34,3 +34,6 @@ Iniciar projeto:
 
 - php artisan serve
 - Deixar Storage de arquivos público php artisan storage:link
+
+![alt text](https://i.ibb.co/tKgzVD6/blog.png)
+
